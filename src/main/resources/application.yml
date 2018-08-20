@@ -1,0 +1,26 @@
+spring:
+    application:
+        name: api-gatway
+        
+server:
+   port: 8761
+   enableSelfPreservation: false
+   
+eureka:
+    client:
+        registerWithEureka: false
+        fetchRegistry: false
+        server: 
+            waitTimeInMSWhenSyncEmpty: 0
+        
+        
+      
+zuul:
+    prefix: /api   
+    routes:
+        catalog-service:
+            path: /catalog-service/**
+            url: http://localhost:8081
+    
+
+            
